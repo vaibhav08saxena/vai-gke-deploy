@@ -1,0 +1,9 @@
+apiversion:deploy.cloud.google.com/vi
+kind: Target
+metadata:
+  name: dev
+  annotations: {}
+  labels: {}
+description: dev
+gke:
+  cluster: projects/gcp-kubernetes-461810/locations/us-central1/clusters/autopilot-cluster-1
