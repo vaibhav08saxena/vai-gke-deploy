@@ -1,4 +1,5 @@
-apiversion:deploy.cloud.google.com/vi
+---
+apiversion: deploy.cloud.google.com/vi
 kind: Target
 metadata:
   name: dev

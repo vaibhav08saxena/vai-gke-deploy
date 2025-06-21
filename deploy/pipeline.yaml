@@ -1,21 +1,11 @@
 apiversion: deploy.cloud.google.com/vi
 kind: DeliveryPipeline
 metadata:
-	name: gke-cicd-1
-	labels:
-		app: cicd
-
+  name: gke-cicd-1
+  labels:
+    app: cicd
 description: cicd delivery pipeline
 serialPipeline:
-	stages:
-	- targetId: dev
-	#profiles:
-		# -dev
-
-	#targetId: staging
-	# profiles:
-	# - staging
-
+  stages:
+    - targetId: dev
     - targetId: prod
-	#profiles:
-	# prod
