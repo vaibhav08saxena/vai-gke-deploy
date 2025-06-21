@@ -1,0 +1,10 @@
+apiversion:deploy.cloud.google.com/vi
+kind: Target
+metadata:
+  name: prod
+  annotations: {}
+  labels: {}
+description: prod
+requireApproval: true
+gke:
+  cluster: projects/gcp-kubernetes-461810/locations/us-central1/clusters/autopilot-cluster-2
