@@ -12,13 +12,13 @@ ENV PATH=${MAVEN_HOME}/bin:${PATH}
 # Verify Maven installation
 RUN mvn -v
 
-#WORKDIR /app
+WORKDIR /app
 COPY pom.xml .
 COPY src ./src
 
 #rum maven to build jar
 RUN mvn clean package -DskipTests
 
-COPY /app/target/*.jar /app/app.jar
+COPY --from=builder /app/target/*.jar app.jar
 
 CMD ["java", "-jar", "app.jar"]
