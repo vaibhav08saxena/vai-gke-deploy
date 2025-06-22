@@ -1,4 +1,4 @@
-apiversion: deploy.cloud.google.com/vi
+apiVersion: deploy.cloud.google.com/vi
 kind: DeliveryPipeline
 metadata:
   name: gke-cicd-1
