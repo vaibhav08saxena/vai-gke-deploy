@@ -1,13 +1,13 @@
 steps:
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['build','-t','us-central1-docker.pkg.dev/gcp-kubernetes-461810/demo-employee-image:v1','demo-employee/.']
+  args: ['build','-t','us-central1-docker.pkg.dev/gcp-kubernetes-461810/demo-employee-image/demo-employee-img:v1','demo-employee/.']
 
   # Push Docker image to GCR
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['push','us-central1-docker.pkg.dev/gcp-kubernetes-461810/demo-employee-image:v1']
+  args: ['push','us-central1-docker.pkg.dev/gcp-kubernetes-461810/demo-employee-image/demo-employee-img:v1']
 
 #images:
-#  - 'asia.gcr.io/gcp-kubernetes-461810/demo-employee-image:v1'
+#  - 'us-central1-docker.pkg.dev/gcp-kubernetes-461810/demo-employee-image/demo-employee-img:v1'
 
 - name: 'google/cloud-sdk:latest'
   entrypoint: 'sh'

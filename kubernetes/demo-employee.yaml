@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: my-container
-          image: us-central1-docker.pkg.dev/gcp-kubernetes-461810/demo-employee-image:v1
+          image: us-central1-docker.pkg.dev/gcp-kubernetes-461810/demo-employee-image/demo-employee-img:v1
           ports:
             - containerPort: 8080
 
