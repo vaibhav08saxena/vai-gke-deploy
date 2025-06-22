@@ -19,4 +19,6 @@ COPY src ./src
 #rum maven to build jar
 RUN mvn clean package -DskipTests
 
-CMD ["java", "-jar", "target/app.jar"]
+COPY target/app.jar app.jar
+
+CMD ["java", "-jar", "app.jar"]
