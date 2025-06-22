@@ -19,6 +19,6 @@ steps:
       gcloud deploy apply --file deploy/dev.yaml --region=us-central1
       gcloud deploy apply --file deploy/prod.yaml --region=us-central1
 
-      gcloud deploy releases create 'demo-employee-release-${SHORT_SHA) --delivery-pipeline=gke-cicd-1 --region=us-central1 --from-k8s-manifest=./kubernetes/demo-employee.yaml     
+      gcloud deploy releases create 'demo-employee-release-${SHORT_SHA)' --delivery-pipeline=gke-cicd-1 --region=us-central1 --from-k8s-manifest=./kubernetes/demo-employee.yaml     
 options: 
    logging: CLOUD_LOGGING_ONLY
