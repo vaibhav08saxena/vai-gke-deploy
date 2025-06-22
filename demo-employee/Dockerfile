@@ -9,10 +9,10 @@ RUN curl -fsSL https://downloads.apache.org/maven/maven-3/${MAVEN_VERSION}/binar
 ENV MAVEN_HOME=/opt/maven
 ENV PATH=${MAVEN_HOME}/bin:${PATH}
 
-FROM maven:${MAVEN_VERSION}-openjdk-24 AS builder
-
 # Verify Maven installation
 RUN mvn -v
+
+FROM maven:3.9.10-openjdk-24 AS builder
 
 WORKDIR /app
 COPY pom.xml .
