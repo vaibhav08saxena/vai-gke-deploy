@@ -7,15 +7,18 @@ steps:
   args: ['push','us-central1-docker.pkg.dev/gcp-kubernetes-461810/demo-employee-image:v1']
 
 #images:
-#  - 'asia.gcr.io/gcp-kubernetes-461810/demo-employee-image'
+#  - 'asia.gcr.io/gcp-kubernetes-461810/demo-employee-image:v1'
 
 - name: 'google/cloud-sdk:latest'
   entrypoint: 'sh'
   args:
-     gcloud deploy apply --file deploy/pipeline.yaml --region=us-central1
-     gcloud deploy apply --file deploy/dev.yaml --region=us-central1
-     gcloud deploy apply --file deploy/prod.yaml --region=us-central1
+    - -xe
+    - -c
+    - |
+      gcloud deploy apply --file deploy/pipeline.yaml --region=us-central1
+      gcloud deploy apply --file deploy/dev.yaml --region=us-central1
+      gcloud deploy apply --file deploy/prod.yaml --region=us-central1
 
-     gcloud deploy releases create 'demo-employee-release-${SHORT_SHA) --delivery-pipeline=gke-cicd-1 --region=us-central1 --from-k8s-manifest=./kubernetes/demo-employee.yaml
+      gcloud deploy releases create 'demo-employee-release-${SHORT_SHA) --delivery-pipeline=gke-cicd-1 --region=us-central1 --from-k8s-manifest=./kubernetes/demo-employee.yaml     
 options: 
    logging: CLOUD_LOGGING_ONLY
