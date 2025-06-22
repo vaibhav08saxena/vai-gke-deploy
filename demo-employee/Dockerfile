@@ -20,7 +20,8 @@ COPY src ./src
 RUN mvn clean package -DskipTests
 RUN pwd
 RUN ls -l /app
-COPY /app/target/demo-employee-0.0.1-SNAPSHOT.jar app.jar
+
+COPY --from=builder /app/target/demo-employee-0.0.1-SNAPSHOT.jar app.jar
 
 EXPOSE 8080
 
