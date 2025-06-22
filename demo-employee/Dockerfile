@@ -12,8 +12,6 @@ ENV PATH=${MAVEN_HOME}/bin:${PATH}
 # Verify Maven installation
 RUN mvn -v
 
-FROM maven:3.9.10-openjdk-24 AS builder
-
 WORKDIR /app
 COPY pom.xml .
 COPY src ./src
@@ -21,10 +19,10 @@ COPY src ./src
 #rum maven to build jar
 RUN mvn clean package -DskipTests
 RUN pwd
-RUN ls -l /app
+RUN ls -l /app/target/
 
-COPY --from=builder /app/target/demo-employee-0.0.1-SNAPSHOT.jar app.jar
+COPY /app/target/demo-employee-0.0.1-SNAPSHOT.jar app.jar
 
 EXPOSE 8080
 
-CMD ["java", "-jar", "app.jar"]
+ENTRYPOINT ["java", "-jar", "app.jar"]
