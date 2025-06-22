@@ -1,10 +1,10 @@
 steps:
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['build','-t','us-central1-docker.pkg.dev/gcp-kubernetes-461810/demo-employee-image','demo-employee/.']
+  args: ['build','-t','us-central1-docker.pkg.dev/gcp-kubernetes-461810/demo-employee-image:v1','demo-employee/.']
 
   # Push Docker image to GCR
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['push','us-central1-docker.pkg.dev/gcp-kubernetes-461810/demo-employee-image']
+  args: ['push','us-central1-docker.pkg.dev/gcp-kubernetes-461810/demo-employee-image:v1']
 
 #images:
 #  - 'asia.gcr.io/gcp-kubernetes-461810/demo-employee-image'
@@ -12,7 +12,7 @@ steps:
 - name: 'google/cloud-sdk:latest'
   entrypoint: 'sh'
   args:
-     #gcloud deploy apply --file deploy/pipeline.yaml --region=us-central1
+     gcloud deploy apply --file deploy/pipeline.yaml --region=us-central1
      gcloud deploy apply --file deploy/dev.yaml --region=us-central1
      gcloud deploy apply --file deploy/prod.yaml --region=us-central1
 
